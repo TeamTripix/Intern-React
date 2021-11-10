@@ -2,6 +2,7 @@ import * as React from "react";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import EditProduct from "../editProduct";
+import DeleteProduct from "../deleteProduct";
 import Typography from "@material-ui/core/Typography";
 import Tooltip from "@material-ui/core/Tooltip";
 export default function RecipeReviewCard(props) {
@@ -43,7 +44,11 @@ export default function RecipeReviewCard(props) {
 
           <div>Closing Date : {closeDate}</div>
         </div>
+        <div style={{display:'flex',justifyContent:'space-between', alignItems:'center'}}>
+
         <EditProduct pId={pId} />
+        <DeleteProduct pId={pId} />
+        </div>
       </CardContent>
     </Card>
   );

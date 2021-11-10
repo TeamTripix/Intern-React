@@ -46,6 +46,8 @@ const EditProduct = (props) => {
         openingDate: openingDate,
         closingDate: closingDate
       }
+
+      console.log(shopData)
       dispatch(editProductAction(shopData, pId))
       setOpen(false);
   };
@@ -102,7 +104,7 @@ const EditProduct = (props) => {
                 type="date"
                 fullWidth
                 variant="outlined"
-                value={openingDate}
+                // value={openingDate}
                 onChange={(e) => setOpeningDate(e.target.value)}
               />
               <TextField
@@ -113,7 +115,7 @@ const EditProduct = (props) => {
                 type="date"
                 fullWidth
                 variant="outlined"
-                value={closingDate}
+                // value={closingDate}
                 onChange={(e) => setClosingDate(e.target.value)}
               />
             </form>

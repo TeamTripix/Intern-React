@@ -20,6 +20,7 @@ function Index(props) {
     <>
       <Navbar username={props.username} />
       <Container style={{ marginTop: "5rem" }}>
+
         <AddProducts />
         <FilterShop />
         <Grid

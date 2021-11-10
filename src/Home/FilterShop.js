@@ -3,26 +3,70 @@ import Box from "@material-ui/core/Box";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
 
-const currencies = [
+const area = [
   {
-    value: "area",
-    label: "Area",
+    value: "Thane",
+    label: "Thane",
   },
   {
-    value: "category",
-    label: "Category",
+    value: "Pune",
+    label: "Pune",
   },
-  //   {
-  //     value: 'BTC',
-  //     label: '฿',
-  //   }
+  {
+    value: "Mumbai Suburban",
+    label: "Mumbai Suburban",
+  },
+  {
+    value: "Nashik",
+    label: "Nashik",
+  },
+  {
+    value: "Nagpur",
+    label: "Nagpur",
+  },
+  {
+    value: "Ahmednagar",
+    label: "Ahmednagar",
+  },
+  {
+    value: "Solapur",
+    label: "Solapur",
+  },
+];
+
+const categoryDropDown = [
+  {
+    value: "Grocery",
+    label: "Grocery",
+  },
+  {
+    value: "Butcher",
+    label: "Butcher",
+  },
+  {
+    value: "Baker",
+    label: "Baker",
+  },
+  {
+    value: "Chemist",
+    label: "Chemist",
+  },
+  {
+    value: "Stationery shop",
+    label: "Stationery shop",
+  },
 ];
 
 export default function FilterShop() {
-  const [filter, setFilter] = React.useState("");
+  const [filterArea, setFilterArea] = React.useState("");
+  const [filterCategory, setFilterCategory] = React.useState("");
 
-  const handleChange = (event) => {
-    setFilter(event.target.value);
+  const handleChangeArea = (event) => {
+    setFilterArea(event.target.value);
+  };
+  
+  const handleChangeCategory = (event) => {
+    setFilterCategory(event.target.value);
   };
 
   return (
@@ -34,15 +78,16 @@ export default function FilterShop() {
       noValidate
       autoComplete="off"
     >
-      <div>
+      <div style={{display:'flex', alignItems:'start'}}>
+      <div style={{marginRight:'1rem'}}>
         <TextField
           id="outlined-select-currency"
           color="primary"
           select
           variant="outlined"
           label="Set Filter"
-          value={filter}
-          onChange={handleChange}
+          value={filterArea}
+          onChange={handleChangeArea}
           style={{
             marginBottom: "1rem",
             color: "white",
@@ -51,12 +96,37 @@ export default function FilterShop() {
             padding: 0,
           }}
         >
-          {currencies.map((option) => (
+          {area.map((option) => (
             <MenuItem key={option.value} value={option.value}>
               {option.label}
             </MenuItem>
           ))}
         </TextField>
+      </div>
+      <div>
+        <TextField
+          id="outlined-select-currency"
+          color="primary"
+          select
+          variant="outlined"
+          label="Set Filter"
+          value={filterCategory}
+          onChange={handleChangeCategory}
+          style={{
+            marginBottom: "1rem",
+            color: "white",
+            backgroundColor: "white",
+            borderRadius: "5px",
+            padding: 0,
+          }}
+        >
+          {categoryDropDown.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
+      </div>
       </div>
     </Box>
   );

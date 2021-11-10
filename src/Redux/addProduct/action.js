@@ -19,4 +19,14 @@ export const editProductAction = (editProductData, id) => {
     }
 }
 
-export default addProductAction
+export const deleteProductAction = ( id) => {
+
+    return{
+        type : 'delete',
+        payload : {
+            deleteId: id,
+        }
+    }
+}
+
+export default addProductAction 
